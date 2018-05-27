@@ -1,0 +1,14 @@
+version: '2'
+services:
+    sitecultuel-app:
+        image: sitecultuel
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://sitecultuel-postgresql:5432/SiteCultuel
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    sitecultuel-postgresql:
+        extends:
+            file: postgresql.yml
+            service: sitecultuel-postgresql

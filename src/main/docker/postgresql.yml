@@ -1,0 +1,11 @@
+version: '2'
+services:
+    sitecultuel-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/SiteCultuel/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=SiteCultuel
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
