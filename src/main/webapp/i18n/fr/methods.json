@@ -1,0 +1,21 @@
+{
+    "siteCultuelApp": {
+        "methods" : {
+            "home": {
+                "title": "Methods",
+                "createLabel": "Créer un nouveau Methods",
+                "createOrEditLabel": "Créer ou éditer un Methods"
+            },
+            "created": "Un nouveau Methods a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Methods avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Methods avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Methods {{ id }} ?"
+            },
+            "detail": {
+                "title": "Methods"
+            },
+            "method": "Method"
+        }
+    }
+}

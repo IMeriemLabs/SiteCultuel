@@ -1,0 +1,29 @@
+{
+    "siteCultuelApp": {
+        "prayer" : {
+            "home": {
+                "title": "Prayers",
+                "createLabel": "Créer un nouveau Prayer",
+                "createOrEditLabel": "Créer ou éditer un Prayer"
+            },
+            "created": "Un nouveau Prayer a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Prayer avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Prayer avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Prayer {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prayer"
+            },
+            "sobh": "Sobh",
+            "chorouq": "Chorouq",
+            "dohr": "Dohr",
+            "asr": "Asr",
+            "maghreb": "Maghreb",
+            "icha": "Icha",
+            "location": "Location",
+            "method": "Method",
+            "degree": "Degree"
+        }
+    }
+}

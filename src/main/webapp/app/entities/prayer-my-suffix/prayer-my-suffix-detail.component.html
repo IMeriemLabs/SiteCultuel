@@ -1,0 +1,63 @@
+
+<div *ngIf="prayer">
+    <h2><span jhiTranslate="siteCultuelApp.prayer.detail.title">Prayer</span> {{prayer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="siteCultuelApp.prayer.sobh">Sobh</span></dt>
+        <dd>
+            <span>{{prayer.sobh}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.chorouq">Chorouq</span></dt>
+        <dd>
+            <span>{{prayer.chorouq}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.dohr">Dohr</span></dt>
+        <dd>
+            <span>{{prayer.dohr}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.asr">Asr</span></dt>
+        <dd>
+            <span>{{prayer.asr}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.maghreb">Maghreb</span></dt>
+        <dd>
+            <span>{{prayer.maghreb}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.icha">Icha</span></dt>
+        <dd>
+            <span>{{prayer.icha}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.location">Location</span></dt>
+        <dd>
+            <div *ngIf="prayer.locationId">
+                <a [routerLink]="['/location-my-suffix', prayer.locationId]">{{prayer.locationId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.method">Method</span></dt>
+        <dd>
+            <div *ngIf="prayer.methodId">
+                <a [routerLink]="['/methods-my-suffix', prayer.methodId]">{{prayer.methodId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.prayer.degree">Degree</span></dt>
+        <dd>
+            <div *ngIf="prayer.degreeId">
+                <a [routerLink]="['/degrees-my-suffix', prayer.degreeId]">{{prayer.degreeId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'prayer-my-suffix/'+ prayer.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

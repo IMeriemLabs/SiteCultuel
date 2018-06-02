@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "prayer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "method",
+            "otherEntityName": "methods",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "prayer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "degree",
+            "otherEntityName": "degrees",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "prayer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "sobh",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "chorouq",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dohr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "asr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maghreb",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "icha",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180527165127",
+    "javadoc": "Prayer entity.\n@author The IMeriem team.",
+    "entityTableName": "prayer",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

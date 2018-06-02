@@ -1,0 +1,53 @@
+
+<div *ngIf="customer">
+    <h2><span jhiTranslate="siteCultuelApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="siteCultuelApp.customer.firstName">First Name</span></dt>
+        <dd>
+            <span>{{customer.firstName}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{customer.lastName}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.roles">Roles</span></dt>
+        <dd>
+            <span jhiTranslate="{{'siteCultuelApp.Roles.' + customer.roles}}">{{customer.roles}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.email">Email</span></dt>
+        <dd>
+            <span>{{customer.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{customer.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.department">Department</span></dt>
+        <dd>
+            <div *ngIf="customer.departmentId">
+                <a [routerLink]="['/department-my-suffix', customer.departmentId]">{{customer.departmentId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="siteCultuelApp.customer.manager">Manager</span></dt>
+        <dd>
+            <div *ngIf="customer.managerId">
+                <a [routerLink]="['/customer-my-suffix', customer.managerId]">{{customer.managerId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'customer-my-suffix/'+ customer.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

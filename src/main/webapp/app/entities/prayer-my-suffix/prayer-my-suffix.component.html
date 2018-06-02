@@ -1,0 +1,84 @@
+<div>
+    <h2>
+        <span jhiTranslate="siteCultuelApp.prayer.home.title">Prayers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-prayer-my-suffix" [routerLink]="['/', { outlets: { popup: ['prayer-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="siteCultuelApp.prayer.home.createLabel">
+            Create new Prayer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="prayers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.sobh">Sobh</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.chorouq">Chorouq</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.dohr">Dohr</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.asr">Asr</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.maghreb">Maghreb</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.icha">Icha</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.location">Location</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.method">Method</span></th>
+            <th><span jhiTranslate="siteCultuelApp.prayer.degree">Degree</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prayer of prayers ;trackBy: trackId">
+                <td><a [routerLink]="['../prayer-my-suffix', prayer.id ]">{{prayer.id}}</a></td>
+                <td>{{prayer.sobh}}</td>
+                <td>{{prayer.chorouq}}</td>
+                <td>{{prayer.dohr}}</td>
+                <td>{{prayer.asr}}</td>
+                <td>{{prayer.maghreb}}</td>
+                <td>{{prayer.icha}}</td>
+                <td>
+                    <div *ngIf="prayer.locationId">
+                        <a [routerLink]="['../location-my-suffix', prayer.locationId  ]" >{{prayer.locationId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="prayer.methodId">
+                        <a [routerLink]="['../methods-my-suffix', prayer.methodId  ]" >{{prayer.methodId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="prayer.degreeId">
+                        <a [routerLink]="['../degrees-my-suffix', prayer.degreeId  ]" >{{prayer.degreeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../prayer-my-suffix', prayer.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'prayer-my-suffix/'+ prayer.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'prayer-my-suffix/'+ prayer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

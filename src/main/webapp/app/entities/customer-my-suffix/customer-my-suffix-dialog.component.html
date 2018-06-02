@@ -1,0 +1,68 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCustomerLabel" jhiTranslate="siteCultuelApp.customer.home.createOrEditLabel">Create or edit a Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!customer.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="customer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                [(ngModel)]="customer.firstName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                [(ngModel)]="customer.lastName" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.roles" for="field_roles">Roles</label>
+            <select class="form-control" name="roles" [(ngModel)]="customer.roles" id="field_roles" >
+                <option value="SYSADMIN">{{'siteCultuelApp.Roles.SYSADMIN' | translate}}</option>
+                <option value="ADMIN">{{'siteCultuelApp.Roles.ADMIN' | translate}}</option>
+                <option value="SUBSCRIBER">{{'siteCultuelApp.Roles.SUBSCRIBER' | translate}}</option>
+                <option value="EDITOR">{{'siteCultuelApp.Roles.EDITOR' | translate}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="customer.email" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                [(ngModel)]="customer.phoneNumber" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.department" for="field_department">Department</label>
+            <select class="form-control" id="field_department" name="department" [(ngModel)]="customer.departmentId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackDepartmentById">{{departmentOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.customer.manager" for="field_manager">Manager</label>
+            <select class="form-control" id="field_manager" name="manager" [(ngModel)]="customer.managerId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="customerOption.id" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

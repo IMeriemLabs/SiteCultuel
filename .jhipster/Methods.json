@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "method",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180527165129",
+    "javadoc": "Methods entity.\n@author The IMeriem team.",
+    "entityTableName": "methods",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

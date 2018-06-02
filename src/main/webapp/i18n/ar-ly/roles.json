@@ -1,0 +1,11 @@
+{
+    "siteCultuelApp": {
+        "Roles" : {
+            "null": "",
+            "SYSADMIN": "SYSADMIN",
+            "ADMIN": "ADMIN",
+            "SUBSCRIBER": "SUBSCRIBER",
+            "EDITOR": "EDITOR"
+        }
+    }
+}

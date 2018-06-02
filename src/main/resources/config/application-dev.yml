@@ -27,8 +27,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:h2:file:./target/h2db/db/sitecultuel;DB_CLOSE_DELAY=-1
-        username: SiteCultuel
-        password:
+        username: postgres
+        password: admin
     h2:
         console:
             enabled: false

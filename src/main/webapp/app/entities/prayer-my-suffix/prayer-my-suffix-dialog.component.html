@@ -1,0 +1,76 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPrayerLabel" jhiTranslate="siteCultuelApp.prayer.home.createOrEditLabel">Create or edit a Prayer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!prayer.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="prayer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.sobh" for="field_sobh">Sobh</label>
+            <input type="text" class="form-control" name="sobh" id="field_sobh"
+                [(ngModel)]="prayer.sobh" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.chorouq" for="field_chorouq">Chorouq</label>
+            <input type="text" class="form-control" name="chorouq" id="field_chorouq"
+                [(ngModel)]="prayer.chorouq" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.dohr" for="field_dohr">Dohr</label>
+            <input type="text" class="form-control" name="dohr" id="field_dohr"
+                [(ngModel)]="prayer.dohr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.asr" for="field_asr">Asr</label>
+            <input type="text" class="form-control" name="asr" id="field_asr"
+                [(ngModel)]="prayer.asr" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.maghreb" for="field_maghreb">Maghreb</label>
+            <input type="text" class="form-control" name="maghreb" id="field_maghreb"
+                [(ngModel)]="prayer.maghreb" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.icha" for="field_icha">Icha</label>
+            <input type="text" class="form-control" name="icha" id="field_icha"
+                [(ngModel)]="prayer.icha" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.location" for="field_location">Location</label>
+            <select class="form-control" id="field_location" name="location" [(ngModel)]="prayer.locationId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.method" for="field_method">Method</label>
+            <select class="form-control" id="field_method" name="method" [(ngModel)]="prayer.methodId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="methodsOption.id" *ngFor="let methodsOption of methods; trackBy: trackMethodsById">{{methodsOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="siteCultuelApp.prayer.degree" for="field_degree">Degree</label>
+            <select class="form-control" id="field_degree" name="degree" [(ngModel)]="prayer.degreeId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="degreesOption.id" *ngFor="let degreesOption of degrees; trackBy: trackDegreesById">{{degreesOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

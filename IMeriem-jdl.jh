@@ -1,0 +1,137 @@
+entity Region {
+	regionName String
+}
+
+entity Country {
+	countryName String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+entity Department {
+	departmentName String required
+}
+
+/**
+ * Task entity.
+ * @author The IMeriem team.
+ */
+entity Task {
+	title String,
+	description String
+}
+
+/**
+ * The Customer entity.
+ */
+entity Customer {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	roles Roles,
+	email String,
+	phoneNumber String
+}
+
+enum Roles {
+	SYSADMIN, ADMIN, SUBSCRIBER, EDITOR
+}
+
+enum Language {
+    FRENCH, ENGLISH, ARABE
+}
+
+entity Dons {
+	uuid String,
+	don Long
+}
+
+/**
+ * Prayer entity.
+ * @author The IMeriem team.
+ */
+entity Prayer {
+	sobh String,
+	chorouq String,
+	dohr String,
+	asr String,
+	maghreb String,
+	icha String
+}
+
+/**
+ * Degrees entity.
+ * @author The IMeriem team.
+ */
+entity Degrees {
+	Degree String
+}
+
+/**
+ * Methods entity.
+ * @author The IMeriem team.
+ */
+entity Methods {
+	method String
+}
+
+// relationships
+relationship OneToOne {
+	Prayer{location} to Location
+}
+
+relationship OneToOne {
+	Prayer{method} to Methods
+}
+
+relationship OneToOne {
+	Prayer{degree} to Degrees
+}
+
+relationship OneToOne {
+	Country{region} to Region
+}
+
+relationship OneToOne {
+	Location{country} to Country
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	/**
+	* A relationship
+	*/
+	Department{Customer} to
+	/**
+	* Another side of the same relationship
+	*/
+	Customer,
+	Customer{dons} to Dons
+}
+
+relationship ManyToOne {
+	Customer{manager} to Customer
+}
+
+// defining multiple oneToOne relationships
+
+// Set pagination options
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Customer
+// Set an angular suffix
+angularSuffix * with mySuffix

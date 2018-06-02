@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "degree",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180527165128",
+    "javadoc": "Degrees entity.\n@author The IMeriem team.",
+    "entityTableName": "degrees",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

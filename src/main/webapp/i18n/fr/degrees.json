@@ -1,0 +1,21 @@
+{
+    "siteCultuelApp": {
+        "degrees" : {
+            "home": {
+                "title": "Degrees",
+                "createLabel": "Créer un nouveau Degrees",
+                "createOrEditLabel": "Créer ou éditer un Degrees"
+            },
+            "created": "Un nouveau Degrees a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Degrees avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Degrees avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Degrees {{ id }} ?"
+            },
+            "detail": {
+                "title": "Degrees"
+            },
+            "degree": "Degree"
+        }
+    }
+}

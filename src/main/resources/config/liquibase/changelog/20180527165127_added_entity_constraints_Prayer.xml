@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Prayer.
+    -->
+    <changeSet id="20180527165127-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="prayer"
+                                 constraintName="fk_prayer_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+
+        <addForeignKeyConstraint baseColumnNames="method_id"
+                                 baseTableName="prayer"
+                                 constraintName="fk_prayer_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="methods"/>
+
+        <addForeignKeyConstraint baseColumnNames="degree_id"
+                                 baseTableName="prayer"
+                                 constraintName="fk_prayer_degree_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="degrees"/>
+
+    </changeSet>
+</databaseChangeLog>

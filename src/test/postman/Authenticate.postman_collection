@@ -1,0 +1,51 @@
+{
+	"id": "514ad8b1-a997-469e-f99b-a28311a42e2c",
+	"name": "test",
+	"description": "",
+	"order": [
+		"40b940fb-1b15-7d15-1490-48bbbf9b85e8"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1527950792810,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "40b940fb-1b15-7d15-1490-48bbbf9b85e8",
+			"headers": "Authorization: Basic Og==\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic Og==",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/authenticate",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1527950946013,
+			"name": "Authenticate",
+			"description": "",
+			"collectionId": "514ad8b1-a997-469e-f99b-a28311a42e2c",
+			"responses": [],
+			"rawModeData": "{\"password\":\"admin\",\"username\":\"admin\"}"
+		}
+	]
+}
